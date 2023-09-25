@@ -514,3 +514,5 @@ namespace MvcMovie.Models
 The DataType attribute specifies the type of the data (Date), so the time information stored in the field isn't displayed.
 
 - The [Column(TypeName = "decimal(18, 2)")] data annotation is required so Entity Framework Core can correctly map Price to currency in the database. 
+
+**I added my git to my project
