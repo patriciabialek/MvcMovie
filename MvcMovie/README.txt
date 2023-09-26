@@ -701,16 +701,14 @@ binding list so this new property will be included. In MoviesController.cs, upda
 </td>
 ***
 
-5. Update the /Views/Movies/Create.cshtml with a Rating field.
-***
-<div class="form-group">
-                <label asp-for="Rating"control-label"></label>
-                <input asp-for="Rating"form-control" />
-                <span asp-validation-for="Rating" class="text-danger"></span>
-</div>
-***
+5. Update the /Views/Movies/Create.cshtml,delete,details,edit.
 6. Update the SeedData class in models, provides a value or the new column. A sample change is shown below.
 ***
 ,
 Rating = "R"
 ***
+6. update the DB: 1. Add-Migration Rating 2. Update-Database
+
+
+{ADD VALIDATION}
+Part 1: 
