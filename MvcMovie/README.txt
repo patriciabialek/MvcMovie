@@ -518,7 +518,7 @@ The DataType attribute specifies the type of the data (Date), so the time inform
 **I added my git to my project
 ***cloned a repository
 
-{PART 7}
+{ADD A SEARCH}
 PART 1: Add a search
 1. Add search capability to the Index action method that lets you search movies by genre or name.
 2. Update the Index method found inside Controllers/MoviesController.cs with the following code:
@@ -673,3 +673,14 @@ PART 3: Add search by genre to the Index view
     </thead>
 4.  @foreach (var item in Model.Movies)
 ***
+
+
+{ADD A NEW FIELD}
+PART 1: Add a Rating Property to the Movie Model
+1. Add a Rating property to Models/Movie.cs:
+***
+public string Rating { get; set; }
+***
+2. Build the app: Ctrl+Shift+B
+
+3. 
