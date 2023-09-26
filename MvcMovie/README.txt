@@ -546,7 +546,7 @@ That means that the evaluation of an expression is delayed until its realized va
 
 3. Navigate to /Movies/Index. Append a query string such as ?searchString=Ghost to the URL. The filtered movies are displayed.
 
-4. update the the Index method found inside Controllers/MoviesController.cs with the following code:
+4. Update the the Index method found inside Controllers/MoviesController.cs with the following code:
 ***
 public async Task<IActionResult> Index(string id)
 {
@@ -561,4 +561,30 @@ public async Task<IActionResult> Index(string id)
     return View(await movies.ToListAsync());
 }
 ***
-- You can now pass the search title as route data (a URL segment) instead of as a query string value.
+- You can now pass the search title as route data (a URL segment) instead of as a query string value.(/index/ghost)
+
+5. Update the the Index method found inside Controllers/MoviesController.cs with the following code:
+***
+public async Task<IActionResult> Index(string searchString)
+{
+    var movies = from m in _context.Movie
+                 select m;
+
+    if (!String.IsNullOrEmpty(searchString))
+    {
+        movies = movies.Where(s => s.Title.Contains(searchString));
+    }
+
+    return View(await movies.ToListAsync());
+}
+***
+
+6. Open the Views/Movies/Index.cshtml file, and add the <form> markup highlighted below:
+***
+<form asp-controller="Movies" asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+***
