@@ -683,4 +683,20 @@ public string Rating { get; set; }
 ***
 2. Build the app: Ctrl+Shift+B
 
-3. 
+3. Because you've added a new field to the Movie class, you need to update the property 
+binding list so this new property will be included. In MoviesController.cs, update the [Bind] attribute for both the Create and Edit action methods to include the Rating property:
+***
+,Ratin (add it to end)
+***
+
+4. Edit the /Views/Movies/Index.cshtml file and add a Rating field:
+***
+1.
+<th>
+            @Html.DisplayNameFor(model => model.Movies[0].Rating)
+</th>
+2.
+<td>
+             @Html.DisplayFor(modelItem => item.Rating)
+</td>
+***
