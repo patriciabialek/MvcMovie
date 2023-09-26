@@ -516,3 +516,4 @@ The DataType attribute specifies the type of the data (Date), so the time inform
 - The [Column(TypeName = "decimal(18, 2)")] data annotation is required so Entity Framework Core can correctly map Price to currency in the database. 
 
 **I added my git to my project
+***cloned a repository
