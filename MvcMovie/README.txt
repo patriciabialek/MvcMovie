@@ -592,3 +592,22 @@ public async Task<IActionResult> Index(string searchString)
 ***
 <form asp-controller="Movies" asp-action="Index" method="get">
 ***
+- Now when you submit a search, the URL contains the search query string.
+
+PART 2: ADD A SEARCH BY GENRE
+1. Add the following MovieGenreViewModel class to the Models folder:
+***
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+
+namespace MvcMovie.Models
+{
+    public class MovieGenreViewModel
+    {
+        public List<Movie> Movies { get; set; }
+        public SelectList Genres { get; set; }
+        public string MovieGenre { get; set; }
+        public string SearchString { get; set; }
+    }
+}
+***
