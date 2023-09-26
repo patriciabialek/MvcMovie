@@ -536,3 +536,29 @@ public async Task<IActionResult> Index(string searchString)
     return View(await movies.ToListAsync());
 }
 ***
+- The first line of the Index action method creates a LINQ query to select the movies.
+- The query is only defined at this point, it has not been run against the database.
+If the searchString parameter contains a string, the movies query is modified to filter on the value of the search string.
+- The s => s.Title.Contains() code above is a Lambda Expression. Lambdas are used in method-based LINQ queries as arguments to 
+standard query operator methods such as the Where method or Contains (used in the code above). 
+LINQ queries are not executed when they're defined or when they're modified by calling a method such as Where, Contains, or OrderBy. Rather, query execution is deferred. 
+That means that the evaluation of an expression is delayed until its realized value is actually iterated over or the ToListAsync method is called.
+
+3. Navigate to /Movies/Index. Append a query string such as ?searchString=Ghost to the URL. The filtered movies are displayed.
+
+4. update the the Index method found inside Controllers/MoviesController.cs with the following code:
+***
+public async Task<IActionResult> Index(string id)
+{
+    var movies = from m in _context.Movie
+                 select m;
+
+    if (!String.IsNullOrEmpty(id))
+    {
+        movies = movies.Where(s => s.Title.Contains(id));
+    }
+
+    return View(await movies.ToListAsync());
+}
+***
+- You can now pass the search title as route data (a URL segment) instead of as a query string value.
