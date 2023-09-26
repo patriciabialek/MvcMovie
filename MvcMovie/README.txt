@@ -711,4 +711,36 @@ Rating = "R"
 
 
 {ADD VALIDATION}
-Part 1: 
+Part 1: Add validation rules to the movie model
+The DataAnnotations namespace provides a set of built-in validation attributes that are applied declaratively to a class or property.
+DataAnnotations also contains formatting attributes like DataType that help with formatting and don't provide any validation.
+1. Update the Movie class to take advantage of the built-in Required, StringLength, RegularExpression, and Range validation attributes.
+***
+public class Movie
+{
+    public int Id { get; set; }
+
+    [StringLength(60, MinimumLength = 3)]
+    [Required]
+    public string Title { get; set; }
+
+    [Display(Name = "Release Date")]
+    [DataType(DataType.Date)]
+    public DateTime ReleaseDate { get; set; }
+
+    [Range(1, 100)]
+    [DataType(DataType.Currency)]
+    [Column(TypeName = "decimal(18, 2)")]
+    public decimal Price { get; set; }
+
+    [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
+    [Required]
+    [StringLength(30)]
+    public string Genre { get; set; }
+
+    [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
+    [StringLength(5)]
+    [Required]
+    public string Rating { get; set; }
+}
+***
