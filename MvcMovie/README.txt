@@ -517,3 +517,22 @@ The DataType attribute specifies the type of the data (Date), so the time inform
 
 **I added my git to my project
 ***cloned a repository
+
+{PART 7}
+PART 1: ADD A SEARCH
+1. Add search capability to the Index action method that lets you search movies by genre or name.
+2. Update the Index method found inside Controllers/MoviesController.cs with the following code:
+***
+public async Task<IActionResult> Index(string searchString)
+{
+    var movies = from m in _context.Movie
+                 select m;
+
+    if (!String.IsNullOrEmpty(searchString))
+    {
+        movies = movies.Where(s => s.Title.Contains(searchString));
+    }
+
+    return View(await movies.ToListAsync());
+}
+***
