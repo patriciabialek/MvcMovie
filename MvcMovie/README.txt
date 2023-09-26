@@ -588,3 +588,7 @@ public async Task<IActionResult> Index(string searchString)
     </p>
 </form>
 ***
+7. Change the Views/Movies/Index.cshtml file, and add the <form> markup highlighted below:
+***
+<form asp-controller="Movies" asp-action="Index" method="get">
+***
