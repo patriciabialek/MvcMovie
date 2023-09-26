@@ -700,3 +700,17 @@ binding list so this new property will be included. In MoviesController.cs, upda
              @Html.DisplayFor(modelItem => item.Rating)
 </td>
 ***
+
+5. Update the /Views/Movies/Create.cshtml with a Rating field.
+***
+<div class="form-group">
+                <label asp-for="Rating"control-label"></label>
+                <input asp-for="Rating"form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+</div>
+***
+6. Update the SeedData class in models, provides a value or the new column. A sample change is shown below.
+***
+,
+Rating = "R"
+***
