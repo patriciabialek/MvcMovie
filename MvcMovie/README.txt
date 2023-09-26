@@ -519,7 +519,7 @@ The DataType attribute specifies the type of the data (Date), so the time inform
 ***cloned a repository
 
 {PART 7}
-PART 1: ADD A SEARCH
+PART 1: Add a search
 1. Add search capability to the Index action method that lets you search movies by genre or name.
 2. Update the Index method found inside Controllers/MoviesController.cs with the following code:
 ***
@@ -594,7 +594,7 @@ public async Task<IActionResult> Index(string searchString)
 ***
 - Now when you submit a search, the URL contains the search query string.
 
-PART 2: ADD A SEARCH BY GENRE
+PART 2: Add a search by genre
 1. Add the following MovieGenreViewModel class to the Models folder:
 ***
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -642,4 +642,34 @@ public async Task<IActionResult> Index(string movieGenre, string searchString)
 
     return View(movieGenreVM);
 }
+***
+- The LINQ query that retrieves all the genres from the database.
+
+PART 3: Add search by genre to the Index view
+1. Update Index.cshtml found in Views/Movies/ as follows:
+***
+1. @model MvcMovie.Models.MovieGenreViewModel
+2. <select asp-for="MovieGenre" asp-items="Model.Genres">
+            <option value="">All</option>
+        </select>
+
+        Title: <input type="text" asp-for="SearchString" />
+3. <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Movies[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movies[0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movies[0].Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movies[0].Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+4.  @foreach (var item in Model.Movies)
 ***
