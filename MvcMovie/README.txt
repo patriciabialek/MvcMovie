@@ -744,8 +744,8 @@ DataAnnotations also contains formatting attributes like DataType that help with
         public string Rating { get; set; }
     }
 ***
-Having usses with rating validation. Have to populate with R rating
-Also having issues witht he titles - its missing. Added h1 tags with title under body tags
+Having issues with rating validation. Have to populate with R rating
+Also having issues with the titles - it's missing. Added h1 tags with title under body tags
 *Validation is working
 
 {EXAMINE DETAILS AND DELETE}
