@@ -20,6 +20,12 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Movies
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "From [HttpPost]Index: filter on " + searchString;
+        }
+
         public async Task<IActionResult> Index(string movieGenre, string searchString)
         {
             // Use LINQ to get list of genres.
@@ -161,7 +167,7 @@ namespace MvcMovie.Controllers
         // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(/*int id*/int id, bool notUsed)
         {
             var movie = await _context.Movie.FindAsync(id);
             _context.Movie.Remove(movie);

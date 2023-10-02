@@ -747,3 +747,6 @@ DataAnnotations also contains formatting attributes like DataType that help with
 Having usses with rating validation. Have to populate with R rating
 Also having issues witht he titles - its missing. Added h1 tags with title under body tags
 *Validation is working
+
+{EXAMINE DETAILS AND DELETE}
+1. Changed *public async Task<IActionResult> DeleteConfirmed(/*int id*/int id, bool notUsed)* to // POST: Movies/Delete/5 in MoviesController.ca file
