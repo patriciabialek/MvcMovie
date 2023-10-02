@@ -738,8 +738,11 @@ DataAnnotations also contains formatting attributes like DataType that help with
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
 
-        
+        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
+        [StringLength(5)]
+        [Required]
         public string Rating { get; set; }
     }
 ***
-Having usses with rating validation.
+Having usses with rating validation. - have to populate with R rating
+also having issues witht he titles - its missing
