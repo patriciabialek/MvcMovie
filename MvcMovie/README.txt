@@ -738,6 +738,7 @@ DataAnnotations also contains formatting attributes like DataType that help with
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
 
+        
         public string Rating { get; set; }
     }
 ***
