@@ -750,3 +750,5 @@ Also having issues witht he titles - its missing. Added h1 tags with title under
 
 {EXAMINE DETAILS AND DELETE}
 1. Changed *public async Task<IActionResult> DeleteConfirmed(/*int id*/int id, bool notUsed)* to // POST: Movies/Delete/5 in MoviesController.ca file
+
+FINISHED THE PROJECT 2023-10-02 1535
